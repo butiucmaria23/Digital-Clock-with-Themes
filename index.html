@@ -9,14 +9,104 @@
 <body class="theme-pink">
     <main class="clock-wrapper">
         <h1 class="title">My Cute Clock</h1>
+
         <canvas id="clockCanvas" width="400" height="150"></canvas>
+
         <section class="theme-controls">
             <p>Pick your theme:</p>
             <button id="pink">Pink</button>
             <button id="purple">Purple</button>
             <button id="rainbow">Rainbow</button>
         </section>
+
+        <section class="panel ">
+            <h2>Audio </h2>
+            <p class="muted">Web Audio API (no external files). Click Enable Audio first.</p>
+
+            <div class="row">
+                <button id="audioEnableBtn">Enable Audio</button>
+
+                <label class="inline">
+                    <input type="checkbox" id="tickToggle" checked>
+                    Tick
+                </label>
+            </div>
+
+            <div class="row">
+                <label class="inline" for="volumeRange">Volume</label>
+                <input id="volumeRange" type="range" min="0" max="100" value="35">
+                <span id="volumeLabel">35%</span>
+            </div>
+
+            <div class="row">
+                <label class="inline" for="alarmTime">Alarm (HH:MM)</label>
+                <input id="alarmTime" type="time" step="60">
+                <button id="setAlarmBtn">Set</button>
+                <button id="clearAlarmBtn" class="ghost">Clear</button>
+                <button id="testAlarmBtn" class="ghost">Test</button>
+            </div>
+
+            <div class="row">
+                <span id="alarmStatus" class="status">No alarm set.</span>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Video </h2>
+            <p class="muted">HTML5 Video API controls from JS. Load a local video if you want.</p>
+
+            <video id="videoPlayer" width="400" controls>
+                <source src="sample.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="row">
+                <button id="videoPlayBtn">Play</button>
+                <button id="videoPauseBtn" class="ghost">Pause</button>
+                <button id="videoMuteBtn" class="ghost">Mute</button>
+            </div>
+
+            <div class="row">
+                <label class="inline">
+                    Seek
+                    <input id="videoSeek" type="range" min="0" max="100" value="0">
+                </label>
+            </div>
+
+            <div class="row">
+                <label class="inline">
+                    Speed
+                    <select id="videoSpeed">
+                        <option value="0.5">0.5x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </label>
+
+                <label class="inline">
+                    Volume
+                    <input id="videoVolume" type="range" min="0" max="100" value="80">
+                </label>
+            </div>
+
+            <div class="row">
+                <button id="videoFsBtn" class="ghost">Fullscreen</button>
+                <button id="videoPipBtn" class="ghost">PiP</button>
+
+                <label class="inline filePick">
+                    Choose video
+                    <input id="videoFile" type="file" accept="video/*">
+                </label>
+            </div>
+
+            <div class="row">
+                <span id="videoStatus" class="status">Video ready.</span>
+            </div>
+        </section>
+
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
